@@ -1,4 +1,4 @@
-#Cryptoprices.fun 
+# Cryptoprices.fun 
 
 A simple site for checking some of the current major cryptocurrency prices. 
 
