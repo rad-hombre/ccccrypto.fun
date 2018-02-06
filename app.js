@@ -43,6 +43,8 @@ fetch(url)
         x++;
       }
       var app = document.getElementsByClassName("app");
+      var footer =  "<div class='little'><p>© 2018</p> <a class='little' href='http://mattheworndoff.com'>" + "Matthew Orndoff" + "</a>" + "</div>";
+      main += footer;
       app[0].innerHTML += main;
     });
   });
