@@ -48,6 +48,3 @@ fetch(url)
       app[0].innerHTML += main;
     });
   });
-
-// think i'd like to use BULMA or something like that to prettify this.
-// buy a url; quick-coins.com or something dumb.
