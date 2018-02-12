@@ -30,13 +30,6 @@ fetch(url)
         if(coins.hasOwnProperty(coin)) {
           name = coin;
           price = coins[coin].USD.PRICE;
-          // coinSymbol = coins[coin].USD.FROMSYMBOL;
-          // Display a symbol only if the coin has one.
-          // if(name.replace(/\s+/, "")  == coinSymbol.replace(/\s+/, "") ) {
-          //   coinSymbol = "";
-          // } else {
-          //   coinSymbol = "" + coinSymbol;
-          // }
           // TODO Make this more responsive
           coinDisplay = `<div class='card coin'>
                <header class="card-header">
