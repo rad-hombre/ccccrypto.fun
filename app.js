@@ -43,6 +43,7 @@ fetch(url)
                   </span>
                 </a>
               </header>
+             
               
               <div class="card-content">
                   <div class="content">
@@ -52,9 +53,12 @@ fetch(url)
                             <img src=./images/svg/${coinImages[x]} alt="Placeholder image">
                           </figure>
                         </div>
+                          <div class="media-content">
+                            <p class="is-8">${price}</p>
+                          </div>    
+                            <a class='is-6 little' href=${coinInfo[x]}>What is ${coinNames[x]}? </a>
                         </div>
-                    <p> ${price} </p>
-                    <a class='little' href=${coinInfo[x]}>What is ${coinNames[x]}? </a>
+                       
                   </div>
                </div>
             </div>`
