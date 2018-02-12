@@ -9,6 +9,10 @@ const coinInfo = ["https://en.wikipedia.org/wiki/Bitcoin", "https://en.wikipedia
   "https://en.wikipedia.org/wiki/Bitcoin_Cash", "https://en.wikipedia.org/wiki/Monero_(cryptocurrency)",
   "https://en.wikipedia.org/wiki/Qtum", "https://en.wikipedia.org/wiki/Zcash", "https://en.wikipedia.org/wiki/Bitcoin_Gold"];
 
+// ./images/svg/
+const coinImages = ["btc.svg", "eth.svg", "etc.svg", "xrp.svg", "ltc.svg", "dash.svg", "bch.svg",
+  "xmr.svg", "qtum.svg", "zec.svg", "btg.svg"];
+
 fetch(url)
   .then(function(res){
     if (res.status !== 200) {
@@ -26,17 +30,41 @@ fetch(url)
         if(coins.hasOwnProperty(coin)) {
           name = coin;
           price = coins[coin].USD.PRICE;
-          coinSymbol = coins[coin].USD.FROMSYMBOL;
+          // coinSymbol = coins[coin].USD.FROMSYMBOL;
           // Display a symbol only if the coin has one.
-          if(name.replace(/\s+/, "")  == coinSymbol.replace(/\s+/, "") ) {
-            coinSymbol = "";
-          } else {
-            coinSymbol = "" + coinSymbol;
-          }
-          coinDisplay = `<div class='card coin'><p class='name'>
-            ${coinNames[x]} (${name} ${coinSymbol})
-            </p><p> ${price} </p>
-            <a class='little' href=${coinInfo[x]}>What is ${coinNames[x]}? </a></div>`
+          // if(name.replace(/\s+/, "")  == coinSymbol.replace(/\s+/, "") ) {
+          //   coinSymbol = "";
+          // } else {
+          //   coinSymbol = "" + coinSymbol;
+          // }
+          // TODO Make this more responsive
+          coinDisplay = `<div class='card coin'>
+               <header class="card-header">
+               <!--name class later maybe-->
+                <p class="name card-header-title">  
+                     ${coinNames[x]}   (${name})
+                </p>
+                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </header>
+              
+              <div class="card-content">
+                  <div class="content">
+                      <div class="media">
+                        <div class="media-left">
+                          <figure class="image is-96x96">       
+                            <img src=./images/svg/${coinImages[x]} alt="Placeholder image">
+                          </figure>
+                        </div>
+                        </div>
+                    <p> ${price} </p>
+                    <a class='little' href=${coinInfo[x]}>What is ${coinNames[x]}? </a>
+                  </div>
+               </div>
+            </div>`
         }
         main += coinDisplay;
         x++;
