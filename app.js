@@ -31,19 +31,13 @@ fetch(url)
           name = coin;
           price = coins[coin].USD.PRICE;
           // TODO Make this more responsive
-          coinDisplay = `<div class='card coin'>
+          coinDisplay = `
+            <div class='card coin'>
                <header class="card-header">
-               <!--name class later maybe-->
                 <p class="name card-header-title">  
                      ${coinNames[x]}   (${name})
                 </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
               </header>
-             
               
               <div class="card-content">
                   <div class="content">
@@ -67,7 +61,7 @@ fetch(url)
         x++;
       }
       const app = document.getElementsByClassName("app");
-      const footer =  "<div class='little'><p>© 2018</p> <a class='little' href='http://mattheworndoff.com'>" + "Matthew Orndoff" + "</a>" + "</div>";
+      const footer =  `<div class='little'><p>© 2018</p> <a class='little' href='http://mattheworndoff.com'>Matthew Orndoff</a></div>`;
       main += footer;
       app[0].innerHTML += main;
     });

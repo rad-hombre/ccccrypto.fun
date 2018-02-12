@@ -4,7 +4,7 @@ p {
 
 .coin {
    margin:1em auto;
-   text-align: center;
+   /*text-align: center;*/
 }
 
 .little {
@@ -14,7 +14,7 @@ p {
 
 .app {
    margin:1em auto;
-   max-width:40em;
+   max-width:25em;
    padding:0 .62em;
    font:1.7em/1.62 menlo, monospace, sans-serif;
    opacity: 0.8;
