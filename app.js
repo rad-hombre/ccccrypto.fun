@@ -23,14 +23,14 @@ fetch(url)
       console.log(data);
       const coins = data.DISPLAY;
       let main = "";
-      let name, price, coinSymbol, coinDisplay;
+      let name, price, coinSymbol, coinDisplay, TwentyFourHrChange;
       let x = 0;
 
       for (const coin in coins) {
         if(coins.hasOwnProperty(coin)) {
           name = coin;
           price = coins[coin].USD.PRICE;
-          // TODO Make this more responsive
+          TwentyFourHrChange = coins[coin].USD.CHANGE24HOUR;
           coinDisplay = `
             <div class='card coin'>
                <header class="card-header">
@@ -47,11 +47,14 @@ fetch(url)
                             <img src=./images/svg/${coinImages[x]} alt="Placeholder image">
                           </figure>
                         </div>
-                          <div class="media-content">
-                            <p class="is-8">${price}</p>
-                          </div>    
-                            <a class='is-6 little' href=${coinInfo[x]}>What is ${coinNames[x]}? </a>
-                        </div>
+                        <div class="media-content coin-information">
+                          <p class=""><strong>price: </strong>${price}</p>
+                          <p class=""><strong>24hr change: </strong>${TwentyFourHrChange}</p>
+                        </div>    
+                        <div class="media-right">
+                            <a class='little' href=${coinInfo[x]}>What is ${coinNames[x]}? </a>
+                        </div>    
+                       </div>
                        
                   </div>
                </div>
