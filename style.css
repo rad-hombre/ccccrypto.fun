@@ -26,6 +26,10 @@
    font: 24px menlo, monospace, sans-serif;
 }
 
+.card {
+   font-size: 2rem;
+   box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+}
 
 
 /*for screens*/
@@ -44,6 +48,15 @@
    .card-header-title {
       justify-content: center;
    }
+   .card {
+      font-size: 2rem;
+      box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+      border-radius: 1.5%;
+   }
+   .content p:not(:last-child) {
+      margin-bottom: 0.5em;
+   }
+
 }
 
 /*for mobile*/
@@ -64,6 +77,8 @@
    }
    .card {
       font-size: 3rem;
+      box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+      border-radius: 1.5%;
    }
    .coin-information {
       font-size: 2.5rem;
@@ -71,7 +86,5 @@
    .little {
       font-size: 1.5rem;
    }
-
-
 }
 
