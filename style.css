@@ -31,7 +31,7 @@
       /*background-color: red;*/
    /*}*/
    .media {
-      /*flex-direction: column;*/
+      flex-direction: column;
       flex-wrap: wrap;
       align-content: center;
 
@@ -42,4 +42,25 @@
    .media-content {
       margin: 0.5em;
    }
+
 }
+
+@media screen and (max-device-width: 600px ) {
+   /*.app {*/
+   /*background-color: red;*/
+   /*}*/
+   .media {
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: center;
+
+   }
+   .media-left {
+      justify-content: center;
+   }
+   .media-content {
+      margin: 0.5em;
+   }
+
+}
+
