@@ -1,10 +1,17 @@
-/*p {*/
-   /*display: inline;*/
-/*}*/
 
 .coin {
    margin:1em auto;
    /*text-align: center;*/
+}
+
+/*overwrite hero padding*/
+.hero.is-medium .hero-body {
+   padding: 0;
+}
+
+.hero.is-primary {
+   background-color: #4a4a4a;
+   font-size: 1em;
 }
 
 .little {

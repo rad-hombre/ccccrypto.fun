@@ -26,6 +26,18 @@ fetch(url)
       let name, price, coinSymbol, coinDisplay, TwentyFourHrChange;
       let x = 0;
 
+      let header = `<section class="hero is-primary is-medium">
+        <div class="hero-body header"></div>
+                <div class="container">
+                <h1 class="title is-1">
+                Cryptocurrency.fun 
+                </h1>
+        <h2 class="subtitle">
+            Here's some of the top cryptocurrency prices… 🍻
+        </h2>
+       </div> </section> `;
+      main += header;
+
       for (const coin in coins) {
         if(coins.hasOwnProperty(coin)) {
           name = coin;
