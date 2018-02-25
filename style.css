@@ -13,7 +13,7 @@
 }
 
 .app {
-   margin:1em auto;
+   margin: 0 auto;
    max-width: 30em;
    padding:0 .62em;
    font:1.7em/1.62 menlo, monospace, sans-serif;
@@ -26,15 +26,14 @@
    font: 24px menlo, monospace, sans-serif;
 }
 
+
+
+/*for screens*/
 @media screen and (max-width: 600px ) {
-   /*.app {*/
-      /*background-color: red;*/
-   /*}*/
    .media {
       flex-direction: column;
       flex-wrap: wrap;
-      align-content: center;
-
+      align-items: center;
    }
    .media-left {
       justify-content: center;
@@ -42,18 +41,17 @@
    .media-content {
       margin: 0.5em;
    }
-
+   .card-header-title {
+      justify-content: center;
+   }
 }
 
+/*for mobile*/
 @media screen and (max-device-width: 600px ) {
-   /*.app {*/
-   /*background-color: red;*/
-   /*}*/
    .media {
       flex-direction: column;
       flex-wrap: wrap;
-      align-content: center;
-
+      align-items: center;
    }
    .media-left {
       justify-content: center;
@@ -61,6 +59,19 @@
    .media-content {
       margin: 0.5em;
    }
+   .card-header-title {
+      justify-content: center;
+   }
+   .card {
+      font-size: 3rem;
+   }
+   .coin-information {
+      font-size: 2.5rem;
+   }
+   .little {
+      font-size: 1.5rem;
+   }
+
 
 }
 

@@ -49,7 +49,7 @@ fetch(url)
                         </div>
                         <div class="media-content coin-information">
                           <p class=""><strong>price: </strong>${price}</p>
-                          <p class=""><strong>24hr change: </strong>${TwentyFourHrChange}</p>
+                          <p class=""><strong>24hr-change: </strong>${TwentyFourHrChange}</p>
                         </div>    
                         <div class="media-right">
                             <a class='little' href=${coinInfo[x]}>What is ${coinNames[x]}? </a>
