@@ -10,8 +10,10 @@
 }
 
 .hero.is-primary {
-   background-color: #4a4a4a;
+   background-image: linear-gradient(-90deg, #3849E0, #E03881);
    font-size: 1em;
+   box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+   /*justify-items: center;*/
 }
 
 .little {
@@ -96,5 +98,7 @@
    .little {
       font-size: 1.5rem;
    }
+
+   .title.is-1 { font-size: 4rem}
 }
 
