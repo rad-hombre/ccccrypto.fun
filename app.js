@@ -30,7 +30,7 @@ fetch(url)
         <div class="hero-body header"></div>
                 <div class="container">
                 <h1 class="title is-1">
-                Cryptocurrency.fun 
+                Cryptoprices.fun!
                 </h1>
         <h2 class="subtitle">
             Here's some of the top cryptocurrency prices… 🍻
