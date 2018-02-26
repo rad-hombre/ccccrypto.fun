@@ -29,12 +29,10 @@ fetch(url)
       let header = `<section class="hero is-primary is-medium">
         <div class="hero-body header"></div>
                 <div class="container">
-                <h1 class="title is-1">
-                Cryptoprices.fun!
-                </h1>
-        <h2 class="subtitle">
-            Here's some of the top cryptocurrency prices… 🍻
-        </h2>
+                <h1 class="title is-1">Cryptoprices.fun!</h1>
+                <h2 class="subtitle">
+                    Some of the top cryptocurrency prices… 🍻
+                </h2>
        </div> </section> `;
       main += header;
 

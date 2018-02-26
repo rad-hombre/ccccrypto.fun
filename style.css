@@ -40,6 +40,10 @@
    box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
 }
 
+.container {
+   padding: 1em;
+}
+
 
 /*for screens*/
 @media screen and (max-width: 600px ) {
