@@ -60,8 +60,8 @@ fetch(url)
                           </figure>
                         </div>
                         <div class="media-content coin-information">
-                          <p class=""><strong>price: </strong>${price}</p>
-                          <p class=""><strong>24hr-change: </strong>${TwentyFourHrChange}</p>
+                          <p class=""><strong>price ➤ </strong>${price.replace(/\s+/g, '')}</p>
+                          <p class=""><strong>24hr change ➤ </strong>${TwentyFourHrChange.replace(/\s+/g, '')}</p>
                         </div>    
                         <div class="media-right">
                             <a class='little' href=${coinInfo[x]}>What is ${coinNames[x]}? </a>
@@ -76,7 +76,7 @@ fetch(url)
         x++;
       }
       const app = document.getElementsByClassName("app");
-      const footer =  `<div class='little'><p>© 2018</p> <a class='little' href='http://mattheworndoff.com'>Matthew Orndoff</a></div>`;
+      const footer =  `<div class='little'>© 2018 <a href='http://mattheworndoff.com'>Matthew Orndoff</a></div>`;
       main += footer;
       app[0].innerHTML += main;
     });

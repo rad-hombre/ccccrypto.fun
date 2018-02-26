@@ -17,13 +17,13 @@
 }
 
 .little {
-   font-size: x-small;
+   font-size: small;
    text-decoration: none;
 }
 
 .app {
    margin: 0 auto;
-   max-width: 30em;
+   max-width: 40em;
    padding:0 .62em;
    font:1.7em/1.62 menlo, monospace, sans-serif;
    opacity: 0.8;
