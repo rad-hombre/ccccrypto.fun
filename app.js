@@ -58,8 +58,8 @@ fetch(url)
                           </figure>
                         </div>
                         <div class="media-content coin-information">
-                          <p class=""><strong>price ➤ </strong>${price.replace(/\s+/g, '')}</p>
-                          <p class=""><strong>24hr change ➤ </strong>${TwentyFourHrChange.replace(/\s+/g, '')}</p>
+                          <p class=""><strong>Price = </strong>${price.replace(/\s+/g, '')}</p>
+                          <p class=""><strong>24hr Change = </strong>${styleUpDown(TwentyFourHrChange.replace(/\s+/g, ''))}</p>
                         </div>    
                         <div class="media-right">
                             <a class='little' href=${coinInfo[x]}>What is ${coinNames[x]}? </a>
@@ -79,3 +79,13 @@ fetch(url)
       app[0].innerHTML += main;
     });
   });
+
+function styleUpDown(str){
+  console.log(str);
+  // console.log(str.search(/([-])\w+/));
+  if( str.search(/([-])\w+/) !== -1){
+    return `<text class="red"> ☟ ${str} </text>`;
+  } else {
+    return `<text class="green"> ☝︎ ${str} </text>`;
+  }
+}
