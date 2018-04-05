@@ -1,5 +1,5 @@
-const grabCoins = "BTC,ETH,ETC,XRP,LTC,DASH,BCH,XMR,QTUM,ZEC,BTG";
-const url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + grabCoins + '&tsyms=USD';
+const coinsToRequest = "BTC,ETH,ETC,XRP,LTC,DASH,BCH,XMR,QTUM,ZEC,BTG";
+const url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + coinsToRequest + '&tsyms=USD';
 const coinNames = ["Bitcoin", "Ethereum", "Ethereum Classic", "Ripple", "Litecoin", "Dash",
   "Bitcoin Cash", "Monero", "Quantum", "ZCash", "Bitcoin Gold"];
 
@@ -20,11 +20,10 @@ fetch(url)
       return;
     }
     res.json().then(function(data) {
-      console.log(data);
       const coins = data.DISPLAY;
       let main = "";
-      let name, price, coinSymbol, coinDisplay, TwentyFourHrChange;
-      let x = 0;
+      let name, price, coinSymbol, coinDisplay, twentyFourHrChange;
+      let currentCoin = 0;
 
       let header = `<section class="hero is-primary is-medium">
         <div class="hero-body header"></div>
@@ -40,12 +39,14 @@ fetch(url)
         if(coins.hasOwnProperty(coin)) {
           name = coin;
           price = coins[coin].USD.PRICE;
-          TwentyFourHrChange = coins[coin].USD.CHANGE24HOUR;
+          twentyFourHrChange = coins[coin].USD.CHANGE24HOUR;
+
+          // Refactor this as a function.
           coinDisplay = `
             <div class='card coin'>
                <header class="card-header">
                 <p class="name card-header-title">  
-                     ${coinNames[x]}   (${name})
+                     ${coinNames[currentCoin]}   (${name})
                 </p>
               </header>
               
@@ -54,15 +55,15 @@ fetch(url)
                       <div class="media">
                         <div class="media-left">
                           <figure class="image is-96x96">       
-                            <img src=./images/svg/${coinImages[x]} alt="Placeholder image">
+                            <img src=./images/svg/${coinImages[currentCoin]} alt="Placeholder image">
                           </figure>
                         </div>
                         <div class="media-content coin-information">
                           <p class=""><strong>Price = </strong>${price.replace(/\s+/g, '')}</p>
-                          <p class=""><strong>24hr Change = </strong>${styleUpDown(TwentyFourHrChange.replace(/\s+/g, ''))}</p>
+                          <p class=""><strong>24hr Change = </strong>${styleValue(twentyFourHrChange.replace(/\s+/g, ''))}</p>
                         </div>    
                         <div class="media-right">
-                            <a class='little' href=${coinInfo[x]}>What is ${coinNames[x]}? </a>
+                            <a class='little' href=${coinInfo[currentCoin]}>What is ${coinNames[currentCoin]}? </a>
                         </div>    
                        </div>
                        
@@ -71,21 +72,29 @@ fetch(url)
             </div>`
         }
         main += coinDisplay;
-        x++;
+        currentCoin++;
       }
       const app = document.getElementsByClassName("app");
-      const footer =  `<div class='little'>© 2018 <a href='http://mattheworndoff.com'>Matthew Orndoff</a></div>`;
-      main += footer;
+      main +=  `<div class='little'>© 2018 <a href='http://mattheworndoff.com'>Matthew Orndoff</a></div>`;  // Add footer.
       app[0].innerHTML += main;
     });
   });
 
-function styleUpDown(str){
-  console.log(str);
-  // console.log(str.search(/([-])\w+/));
-  if( str.search(/([-])\w+/) !== -1){
+
+// I feel like this is doing too many things.  List out the things it's doing:
+/*
+1. Checks if the string/value is a negative
+2. wraps string/value in appropriate html and returns it.
+ */
+function styleValue(str){
+  if( isNegativeValue(str) ){
     return `<text class="red"> ☟ ${str} </text>`;
   } else {
     return `<text class="green"> ☝︎ ${str} </text>`;
   }
 }
+
+function isNegativeValue(str){
+  return str.search(/([-])\w+/);
+}
+
