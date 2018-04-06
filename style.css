@@ -1,5 +1,4 @@
 :root {
-
 }
 
 .app {
@@ -11,7 +10,6 @@
    -webkit-font-smoothing: antialiased;
    text-rendering: geometricPrecision;
 }
-
 
 .hero.is-primary {
    background-image: linear-gradient(-90deg, #3849E0, #E03881);
@@ -37,8 +35,12 @@
    border: 4px solid #000;
 }
 
-.coin-information {
+.media-content {
    font: 24px menlo, monospace, sans-serif;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 15px 10px;
 }
 
 .red {
@@ -75,10 +77,6 @@
       justify-content: center;
    }
 
-   .coin-information {
-      font-size: 1.5rem;
-   }
-
    /* Card Content */
    .media {
       flex-direction: column;
@@ -91,6 +89,7 @@
    }
 
    .media-content {
+      font-size: 1.5rem;
       margin: 0.5em;
    }
 

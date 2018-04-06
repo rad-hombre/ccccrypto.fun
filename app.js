@@ -27,7 +27,7 @@ fetch(url)
 
       let header = `<section class="hero is-primary is-medium">
         <div class="hero-body header"></div>
-                <div class="container">
+                <div class="container is-centered">
                 <h1 class="title is-1">Cryptoprices.fun!</h1>
                 <h2 class="subtitle">
                     Some of the top cryptocurrency prices… 🍻
@@ -45,30 +45,27 @@ fetch(url)
           coinDisplay = `
             <div class='card'>
                <header class="card-header">
-                <p class="name card-header-title">  
+                <p class="name card-header-title is-centered">  
                      ${coinNames[currentCoin]}   (${name})
                 </p>
               </header>
-              
-              <div class="card-content">
-                  <div class="content">
-                      <div class="media">
-                        <div class="media-left">
-                          <figure class="image is-96x96">       
-                            <img src=./images/svg/${coinImages[currentCoin]} alt="Placeholder image">
-                          </figure>
-                        </div>
-                        <div class="media-content coin-information">
-                          <p class=""><strong>Price = </strong>${price.replace(/\s+/g, '')}</p>
-                          <p class=""><strong>24hr Change = </strong>${styleValue(twentyFourHrChange.replace(/\s+/g, ''))}</p>
-                        </div>    
-                        <div class="media-right">
-                            <a class='shrink-me' href=${coinInfo[currentCoin]}>What is ${coinNames[currentCoin]}? </a>
-                        </div>    
-                       </div>
-                       
+             <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-96x96">       
+                      <img src=./images/svg/${coinImages[currentCoin]} alt="Placeholder image">
+                    </figure>
                   </div>
-               </div>
+                  <div class="media-content">
+                    <p class=""><strong>Price = </strong>${price.replace(/\s+/g, '')}</p>
+                    <p class=""><strong>24hr Change = </strong>${styleValue(twentyFourHrChange.replace(/\s+/g, ''))}</p>
+                  </div>    
+                  <div class="media-right">
+                      <a class='shrink-me' href=${coinInfo[currentCoin]}>What is ${coinNames[currentCoin]}? </a>
+                  </div>    
+                </div>
+              </div>
+                       
             </div>`
         }
         main += coinDisplay;
