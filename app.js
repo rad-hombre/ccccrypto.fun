@@ -43,7 +43,7 @@ fetch(url)
 
           // Refactor this as a function.
           coinDisplay = `
-            <div class='card coin'>
+            <div class='card'>
                <header class="card-header">
                 <p class="name card-header-title">  
                      ${coinNames[currentCoin]}   (${name})
@@ -63,7 +63,7 @@ fetch(url)
                           <p class=""><strong>24hr Change = </strong>${styleValue(twentyFourHrChange.replace(/\s+/g, ''))}</p>
                         </div>    
                         <div class="media-right">
-                            <a class='little' href=${coinInfo[currentCoin]}>What is ${coinNames[currentCoin]}? </a>
+                            <a class='shrink-me' href=${coinInfo[currentCoin]}>What is ${coinNames[currentCoin]}? </a>
                         </div>    
                        </div>
                        
@@ -75,7 +75,7 @@ fetch(url)
         currentCoin++;
       }
       const app = document.getElementsByClassName("app");
-      main +=  `<div class='little'>© 2018 <a href='http://mattheworndoff.com'>Matthew Orndoff</a></div>`;  // Add footer.
+      main +=  `<div class='shrink-me'>© 2018 <a href='http://mattheworndoff.com'>Matthew Orndoff</a></div>`;  // Add footer.
       app[0].innerHTML += main;
     });
   });

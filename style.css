@@ -1,34 +1,5 @@
+:root {
 
-.coin {
-   margin:1em auto;
-   /*text-align: center;*/
-}
-
-.red {
-   color: red;
-   display: inline;
-}
-
-.green {
-   color: green;
-   display: inline;
-}
-
-/*overwrite hero padding*/
-.hero.is-medium .hero-body {
-   padding: 0;
-}
-
-.hero.is-primary {
-   background-image: linear-gradient(-90deg, #3849E0, #E03881);
-   font-size: 1em;
-   box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
-   /*justify-items: center;*/
-}
-
-.little {
-   font-size: small;
-   text-decoration: none;
 }
 
 .app {
@@ -41,78 +12,99 @@
    text-rendering: geometricPrecision;
 }
 
-.coin-information {
-   font: 24px menlo, monospace, sans-serif;
+
+.hero.is-primary {
+   background-image: linear-gradient(-90deg, #3849E0, #E03881);
+   font-size: 1em;
+   box-shadow: 6px 6px 0 #000;
+   border: 4px solid #000;
 }
 
-.card {
-   font-size: 2rem;
-   box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+/* make hero smaller */
+.hero.is-medium .hero-body {
+   padding: 0;
 }
 
+/* Hero content */
 .container {
    padding: 1em;
 }
 
+.card {
+   font-size: 2rem;
+   margin:1em auto;
+   box-shadow: 6px 6px 0 #000;
+   border: 4px solid #000;
+}
 
-/*for screens*/
-@media screen and (max-width: 600px ) {
+.coin-information {
+   font: 24px menlo, monospace, sans-serif;
+}
+
+.red {
+   color: red;
+   display: inline;
+}
+
+.green {
+   color: green;
+   display: inline;
+}
+
+.shrink-me {
+   font-size: small;
+   /*text-decoration: none;*/
+}
+
+/* for screens & mobile */
+@media screen and (max-width: 600px ), (max-device-width: 600px )  {
+
+   /* Site Header */
+   .title.is-1 {
+      font-size: 2rem;
+   }
+
+   /* Card */
+   .card {
+      font-size: 2.5rem;
+      box-shadow: 6px 6px 0 #000;
+      border: 4px solid #000;
+   }
+
+   .card-header-title {
+      justify-content: center;
+   }
+
+   .coin-information {
+      font-size: 1.5rem;
+   }
+
+   /* Card Content */
    .media {
       flex-direction: column;
       flex-wrap: wrap;
       align-items: center;
    }
+
    .media-left {
       justify-content: center;
    }
+
    .media-content {
       margin: 0.5em;
    }
-   .card-header-title {
-      justify-content: center;
-   }
-   .card {
-      font-size: 2rem;
-      box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
-      border-radius: 1.5%;
-   }
+
+   /* Grabs price text */
    .content p:not(:last-child) {
       margin-bottom: 0.5em;
    }
 
+   .shrink-me {
+      font-size: 1rem;
+   }
+
+   .subtitle {
+      font-size: 1rem;
+   }
+
 }
-
-/*for mobile*/
-@media screen and (max-device-width: 600px ) {
-    .app {
-       max-width: inherit;
-    }
-   .media {
-      flex-direction: column;
-      flex-wrap: wrap;
-      align-items: center;
-   }
-   .media-left {
-      justify-content: center;
-   }
-   .media-content {
-      margin: 0.5em;
-   }
-   .card-header-title {
-      justify-content: center;
-   }
-   .card {
-      font-size: 3rem;
-      box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
-      border-radius: 1.5%;
-   }
-   .coin-information {
-      font-size: 2.5rem;
-   }
-   .little {
-      font-size: 1.5rem;
-   }
-
-   .title.is-1 { font-size: 4rem}
-}
-
