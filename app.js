@@ -25,8 +25,13 @@ fetch(url)
       let name, price, coinSymbol, coinDisplay, twentyFourHrChange;
       let currentCoin = 0;
 
+
+
+      let navbar = ``;
+      main += navbar;
+
       let header = `
-        <section class="hero is-primary is-medium">
+        <section class="hero is-primary">
         <div class="hero-body header">
                 <h1 class="title is-pulled-left">Cryptoprices.fun!</h1>
                 <h2 class="subtitle is-pulled-right">Some of the top cryptocurrency prices… 🍻</h2>
@@ -49,17 +54,22 @@ fetch(url)
                 </p>
               </header>
              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
+                <div class="level">
+                  <div class="level-item">
                     <figure class="image is-96x96">       
                       <img src=./images/svg/${coinImages[currentCoin]} alt="Placeholder image">
                     </figure>
                   </div>
-                  <div class="media-content">
-                    <p class=""><strong>Price = </strong>${price.replace(/\s+/g, '')}</p>
-                    <p class=""><strong>24hr Change = </strong>${styleValue(twentyFourHrChange.replace(/\s+/g, ''))}</p>
+                  <div class="level-item">
+                    <div class="level">
+                    <p class="level-item">
+                        <strong>Price =</strong>${price.replace(/\s+/g, '')}</p>
+                    <p class="level-item">
+                      <strong>24hr Change =</strong>${styleValue(twentyFourHrChange.replace(/\s+/g, ''))}</p>
+                   </div>  
+                   
                   </div>    
-                  <div class="media-right">
+                  <div class="level-item">
                       <a class='shrink-me' href=${coinInfo[currentCoin]}>What is ${coinNames[currentCoin]}? </a>
                   </div>    
                 </div>
@@ -71,7 +81,7 @@ fetch(url)
         currentCoin++;
       }
       const app = document.getElementsByClassName("app");
-      main +=  `<div class='shrink-me'>© 2018 <a href='http://mattheworndoff.com'>Matthew Orndoff</a></div>`;  // Add footer.
+      main +=  `<div class='shrink-me footer'>© 2018 <a href='http://mattheworndoff.com'>Matthew Orndoff</a></div>`;  // Add footer.
       app[0].innerHTML += main;
     });
   });
