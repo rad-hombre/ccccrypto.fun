@@ -25,14 +25,13 @@ fetch(url)
       let name, price, coinSymbol, coinDisplay, twentyFourHrChange;
       let currentCoin = 0;
 
-      let header = `<section class="hero is-primary is-medium">
-        <div class="hero-body header"></div>
-                <div class="container is-centered">
-                <h1 class="title is-1">Cryptoprices.fun!</h1>
-                <h2 class="subtitle">
-                    Some of the top cryptocurrency prices… 🍻
-                </h2>
-       </div> </section> `;
+      let header = `
+        <section class="hero is-primary is-medium">
+        <div class="hero-body header">
+                <h1 class="title is-pulled-left">Cryptoprices.fun!</h1>
+                <h2 class="subtitle is-pulled-right">Some of the top cryptocurrency prices… 🍻</h2>
+         </div> 
+       </section> `;
       main += header;
 
       for (const coin in coins) {

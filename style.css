@@ -2,20 +2,39 @@
 }
 
 .app {
+    /*Use bulma presets instead*/
    margin: 0 auto;
    max-width: 40em;
-   padding:0 .62em;
+   padding: 0 .62em;
    font:1.7em/1.62 menlo, monospace, sans-serif;
    opacity: 0.8;
    -webkit-font-smoothing: antialiased;
    text-rendering: geometricPrecision;
 }
 
+@-webkit-keyframes AnimationName {
+   0%{background-position:0% 50%}
+   50%{background-position:100% 50%}
+   100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+   0%{background-position:0% 50%}
+   50%{background-position:100% 50%}
+   100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+   0%{background-position:0% 50%}
+   50%{background-position:100% 50%}
+   100%{background-position:0% 50%}
+}
+
 .hero.is-primary {
    background-image: linear-gradient(-90deg, #3849E0, #E03881);
-   font-size: 1em;
-   box-shadow: 6px 6px 0 #000;
-   border: 4px solid #000;
+   font-size: 1rem;
+   /*box-shadow: 6px 6px 0 #000;*/
+   box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+   /*border: 4px solid #000;*/
+
 }
 
 /* make hero smaller */
@@ -25,14 +44,31 @@
 
 /* Hero content */
 .container {
-   padding: 1em;
+   padding: 1rem;
 }
+
+.title:not(.is-spaced)+.subtitle {
+   margin-top: 0;
+}
+
 
 .card {
    font-size: 2rem;
    margin:1em auto;
-   box-shadow: 6px 6px 0 #000;
-   border: 4px solid #000;
+   /*box-shadow: 6px 6px 0 #000;*/
+   box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+   /*border: 4px solid #000;*/
+}
+
+.card-header {
+
+}
+
+.card-header-title {
+}
+
+.card-content {
+   /*padding: 5px;*/
 }
 
 .media-content {
@@ -53,6 +89,16 @@
    display: inline;
 }
 
+.subtitle {
+   background: linear-gradient(274deg, #8fdd95, #e28fbb, #e2aa83, #aaa8ff);
+   background-size: 800% 800%;
+   -webkit-animation: AnimationName 0.5s ease infinite;
+   -moz-animation: AnimationName 0.5s ease infinite;
+   animation: AnimationName 0.5s ease infinite;
+   /*margin: 15px;*/
+   font-size: small;
+}
+
 .shrink-me {
    font-size: small;
    /*text-decoration: none;*/
@@ -69,12 +115,13 @@
    /* Card */
    .card {
       font-size: 2.5rem;
-      box-shadow: 6px 6px 0 #000;
-      border: 4px solid #000;
+      /*box-shadow: 6px 6px 0 #000;*/
+      box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+      /*border: 4px solid #000;*/
    }
 
    .card-header-title {
-      justify-content: center;
+      /*justify-content: center;*/
    }
 
    /* Card Content */
@@ -95,7 +142,7 @@
 
    /* Grabs price text */
    .content p:not(:last-child) {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.5rem;
    }
 
    .shrink-me {
@@ -103,7 +150,7 @@
    }
 
    .subtitle {
-      font-size: 1rem;
+      font-size: 0.85rem;
    }
 
 }
