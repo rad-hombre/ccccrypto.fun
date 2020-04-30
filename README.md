@@ -1,4 +1,4 @@
-# Cryptoprices.fun 
+# ccccrypto.fun 
 
 A simple site for checking some of the current major cryptocurrency prices. 
 
