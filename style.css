@@ -1,27 +1,156 @@
-p {
-   display: inline;
-}
-.name {
-   color: #f72cbf
-}
-
-.coin {
-   margin:1em auto;
-   text-align: center;
-}
-
-.little {
-   font-size: x-small;
-   text-decoration: none;
+:root {
 }
 
 .app {
-   margin:1em auto;
-   max-width:40em;
-   padding:0 .62em;
+    /*Use bulma presets instead*/
+   margin: 0 auto;
+   max-width: 40em;
+   padding: 0 .62em;
    font:1.7em/1.62 menlo, monospace, sans-serif;
    opacity: 0.8;
    -webkit-font-smoothing: antialiased;
    text-rendering: geometricPrecision;
 }
+
+@-webkit-keyframes AnimationName {
+   0%{background-position:0% 50%}
+   50%{background-position:100% 50%}
+   100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+   0%{background-position:0% 50%}
+   50%{background-position:100% 50%}
+   100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+   0%{background-position:0% 50%}
+   50%{background-position:100% 50%}
+   100%{background-position:0% 50%}
+}
+
+/* make hero smaller */
+.hero-body {
+   padding: 10px;
+}
+
+.hero {
+   background-image: linear-gradient(-90deg, #3849E0, #E03881);
+   font-size: 1rem;
+   box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+}
+
+.title {
+   font-size: 3rem;
+}
+
+.subtitle {
+    background: linear-gradient(274deg, #8fdd95, #e28fbb, #e2aa83, #aaa8ff);
+    background-size: 800% 800%;
+    -webkit-animation: AnimationName 0.5s ease infinite;
+    -moz-animation: AnimationName 0.5s ease infinite;
+    animation: AnimationName 0.5s ease infinite;
+    /*margin: 15px;*/
+    /*font-size: small;*/
+   padding: 2px;
+   box-shadow: 0 2px 7px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+}
+
+.title:not(.is-spaced)+.subtitle {
+   margin-top: 0;
+}
+
+.card {
+   font-size: 2rem;
+   margin:1em auto;
+   /*box-shadow: 6px 6px 0 #000;*/
+   box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+   /*border: 4px solid #000;*/
+
+}
+
+.card-header {
+
+}
+
+.card-header-title {
+}
+.card-content {
+   /*padding: 5px;*/
+}
+
+.level-item {
+   font: 24px menlo, monospace, sans-serif;
+   display: flex;
+   flex-shrink: 1;
+   /*flex-direction: column;*/
+   align-items: center;
+   padding: 5px 5px;
+}
+
+.red {
+   color: red;
+   display: inline;
+}
+
+.green {
+   color: green;
+   display: inline;
+}
+
+
+.shrink-me {
+   font-size: small;
+   /*text-decoration: none;*/
+}
+
+
+/* for screens & mobile */
+@media screen and (max-width: 600px ), (max-device-width: 600px )  {
+
+    /* Site Header */
+    .title.is-1 {
+        font-size: 2rem;
+    }
+
+    /* Card */
+    .card {
+        font-size: 2.5rem;
+        /*box-shadow: 6px 6px 0 #000;*/
+        box-shadow: 0 5px 15px rgba(10,10,10,0.2), 0 0 0 1px rgba(10,10,10,.1);
+        /*border: 4px solid #000;*/
+    }
+
+    .card-header-title {
+        /*justify-content: center;*/
+    }
+
+    /* Card Content */
+    .level {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .level-item {
+        justify-content: center;
+        font-size: 1.5rem;
+        margin: 0.5em;
+    }
+
+    /* Grabs price text */
+    .content p:not(:last-child) {
+        margin-bottom: 0.5rem;
+    }
+
+    .shrink-me {
+        font-size: 1rem;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+    }
+
+}
+
+
 

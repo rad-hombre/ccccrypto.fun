@@ -1,14 +1,17 @@
-
-var grabCoins = "BTC,ETH,ETC,XRP,LTC,DASH,BCH,XMR,QTUM,ZEC,BTG";
-var url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + grabCoins + '&tsyms=USD';
-var coinNames = ["Bitcoin", "Ethereum", "Ethereum Classic", "Ripple", "Litecoin", "Dash",
+const coinsToRequest = "BTC,ETH,ETC,XRP,LTC,DASH,BCH,XMR,QTUM,ZEC,BTG";
+const url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + coinsToRequest + '&tsyms=USD';
+const coinNames = ["Bitcoin", "Ethereum", "Ethereum Classic", "Ripple", "Litecoin", "Dash",
   "Bitcoin Cash", "Monero", "Quantum", "ZCash", "Bitcoin Gold"];
 
-var coinInfo = ["https://en.wikipedia.org/wiki/Bitcoin", "https://en.wikipedia.org/wiki/Ethereum",
+const coinInfo = ["https://en.wikipedia.org/wiki/Bitcoin", "https://en.wikipedia.org/wiki/Ethereum",
   "https://en.wikipedia.org/wiki/Ethereum_Classic", "https://en.wikipedia.org/wiki/Ripple_(payment_protocol)",
   "https://en.wikipedia.org/wiki/Litecoin", "https://en.wikipedia.org/wiki/Dash_(cryptocurrency)",
   "https://en.wikipedia.org/wiki/Bitcoin_Cash", "https://en.wikipedia.org/wiki/Monero_(cryptocurrency)",
   "https://en.wikipedia.org/wiki/Qtum", "https://en.wikipedia.org/wiki/Zcash", "https://en.wikipedia.org/wiki/Bitcoin_Gold"];
+
+// ./images/svg/
+const coinImages = ["btc.svg", "eth.svg", "etc.svg", "xrp.svg", "ltc.svg", "dash.svg", "bch.svg",
+  "xmr.svg", "qtum.svg", "zec.svg", "btg.svg"];
 
 fetch(url)
   .then(function(res){
@@ -17,34 +20,87 @@ fetch(url)
       return;
     }
     res.json().then(function(data) {
-      console.log(data);
-      var coins = data.DISPLAY;
-      var main = "";
-      var name, price, coinSymbol, coinDisplay;
-      var x = 0;
+      const coins = data.DISPLAY;
+      let main = "";
+      let name, price, coinSymbol, coinDisplay, twentyFourHrChange;
+      let currentCoin = 0;
 
-      for (var coin in coins) {
+
+
+      let navbar = ``;
+      main += navbar;
+
+      let header = `
+        <section class="hero is-primary">
+        <div class="hero-body header">
+                <h1 class="title is-pulled-left">Cryptoprices.fun!</h1>
+                <h2 class="subtitle is-pulled-right">Some of the top cryptocurrency prices… 🍻</h2>
+         </div> 
+       </section> `;
+      main += header;
+
+      for (const coin in coins) {
         if(coins.hasOwnProperty(coin)) {
           name = coin;
           price = coins[coin].USD.PRICE;
-          coinSymbol = coins[coin].USD.FROMSYMBOL;
-          // Display a symbol only if the coin has one.
-          if(name.replace(/\s+/, "")  == coinSymbol.replace(/\s+/, "") ) {
-            coinSymbol = "";
-          } else {
-            coinSymbol = " " + coinSymbol;
-          }
-          coinDisplay = "<div class='coin'><p class='name'>"
-            + coinNames[x] + " (" + name +  coinSymbol + ") "
-            + "</p>" + "<p>" + price + "</p> "
-            + "<a class='little' href="+ coinInfo[x] + ">" + "What is " + coinNames[x] + "?" + "</a>" + "</div>";
+          twentyFourHrChange = coins[coin].USD.CHANGE24HOUR;
+
+          // Refactor this as a function.
+          coinDisplay = `
+            <div class='card'>
+               <header class="card-header">
+                <p class="name card-header-title is-centered">  
+                     ${coinNames[currentCoin]}   (${name})
+                </p>
+              </header>
+             <div class="card-content">
+                <div class="level">
+                  <div class="level-item">
+                    <figure class="image is-96x96">       
+                      <img src=./images/svg/${coinImages[currentCoin]} alt="Placeholder image">
+                    </figure>
+                  </div>
+                  <div class="level-item">
+                    <div class="level">
+                    <p class="level-item">
+                        <strong>Price =</strong>${price.replace(/\s+/g, '')}</p>
+                    <p class="level-item">
+                      <strong>24hr Change =</strong>${styleValue(twentyFourHrChange.replace(/\s+/g, ''))}</p>
+                   </div>  
+                   
+                  </div>    
+                  <div class="level-item">
+                      <a class='shrink-me' href=${coinInfo[currentCoin]}>What is ${coinNames[currentCoin]}? </a>
+                  </div>    
+                </div>
+              </div>
+                       
+            </div>`
         }
         main += coinDisplay;
-        x++;
+        currentCoin++;
       }
-      var app = document.getElementsByClassName("app");
-      var footer =  "<div class='little'><p>© 2018</p> <a class='little' href='http://mattheworndoff.com'>" + "Matthew Orndoff" + "</a>" + "</div>";
-      main += footer;
+      const app = document.getElementsByClassName("app");
+      main +=  `<div class='shrink-me footer'>© 2018 <a href='http://mattheworndoff.com'>Matthew Orndoff</a></div>`;  // Add footer.
       app[0].innerHTML += main;
     });
   });
+
+
+// I feel like this is doing too many things.  List out the things it's doing:
+/*
+1. Checks if the string/value is a negative
+2. wraps string/value in appropriate html and returns it.
+ */
+function styleValue(str){
+  if( isNegativeValue(str) ){
+    return `<text class="red"> ☟ ${str} </text>`;
+  } else {
+    return `<text class="green"> ☝︎ ${str} </text>`;
+  }
+}
+
+function isNegativeValue(str){
+  return str.search(/([-])\w+/);
+}
+
