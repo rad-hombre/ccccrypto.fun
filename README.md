@@ -2,4 +2,6 @@
 
 A simple site for checking some of the current major cryptocurrency prices. 
 
-Crypto SVGs grabbed from [here](https://github.com/cjdowner/cryptocurrency-icons). 
+[Live version](https://rad-hombre.github.io/ccccrypto.fun/)
+
+SVGs grabbed from [here](https://github.com/cjdowner/cryptocurrency-icons). 
